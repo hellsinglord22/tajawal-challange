@@ -1,4 +1,5 @@
 {
   "LOGGER_LEVEL": "LOGGER_LEVEL",
-  "NODE_ENV": "NODE_ENV"
+  "NODE_ENV": "NODE_ENV",
+  "PORT": "PORT"
 }

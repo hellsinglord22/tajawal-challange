@@ -1,4 +1,6 @@
 const express = require('express'),
+  config = require('config'),
+  PORT = config.get('PORT'),
   app = express();
 
 
@@ -8,5 +10,5 @@ app
     res.send('Hello');
 
   })
-  .listen(3000);
+  .listen(PORT);
 
