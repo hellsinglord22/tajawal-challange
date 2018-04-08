@@ -1,14 +1,9 @@
 const express = require('express'),
   config = require('config'),
   PORT = config.get('PORT'),
+  hotelsRoutes = require('./routes/hotels'),
   app = express();
 
 
-app
-  .get('/', function(req, res) {
-
-    res.send('Hello');
-
-  })
+app.use(hotelsRoutes)
   .listen(PORT);
-
