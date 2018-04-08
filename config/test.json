@@ -1,4 +1,7 @@
 {
   "LOGGER_LEVEL": "test",
-  "PORT": "3000"
+  "PORT": "3000",
+  "API": {
+    "HOTEL": "https://fake_api"
+  }
 }

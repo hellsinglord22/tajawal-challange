@@ -1,5 +1,8 @@
 {
   "LOGGER_LEVEL": "LOGGER_LEVEL",
   "NODE_ENV": "NODE_ENV",
-  "PORT": "PORT"
+  "PORT": "PORT",
+  "API": {
+    "HOTEL": "HOTEL_API"
+  }
 }

@@ -1,3 +1,7 @@
 {
-  "LOGGER_LEVEL": "debugger"
+  "LOGGER_LEVEL": "debugger",
+  "PORT": 3000,
+  "API": {
+    "HOTEL": "https://api.myjson.com/bins/tl0bp"
+  }
 }

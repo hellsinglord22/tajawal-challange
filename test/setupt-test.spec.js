@@ -6,16 +6,27 @@ const sinon = require('sinon'),
   config = require('config'),
   winston = require('winston'),
   nock = require('nock'),
-  { expect } = chai,
   chaiMatch = require('chai-match'),
   chaiAsPromised = require('chai-as-promised');
 
 
+const loadFakeHotels = function () {
+
+  const fakeData = require('./hotels.data');
+
+  return fakeData;
+
+};
+
+
 before(function() {
 
+  this.loadFakeHotels = loadFakeHotels;
   chai.use(sinonChai);
   chai.use(chaiMatch);
   chai.use(chaiAsPromised);
+
+  // remove on it's own file
   winston.setLevels({
     debug: 5,
     info: 4,
@@ -38,7 +49,6 @@ before(function() {
     colorize: true
   });
 
-
 });
 
 beforeEach(function beforeEach() {
@@ -55,19 +65,3 @@ afterEach(function afterEach() {
 
 });
 
-
-describe('# Setup Test', function() {
-
-  it('NODE_ENV should be test', function() {
-
-    const expectedRseult = 'test',
-      FAILURE_MESSAGE = 'Unit test should only run in testing environment',
-      NODE_ENV = config.get('NODE_ENV');
-
-
-    expect(NODE_ENV).to.equal(expectedRseult, FAILURE_MESSAGE);
-
-  });
-
-
-});
