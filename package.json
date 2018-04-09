@@ -17,6 +17,7 @@
     "express": "^4.16.3",
     "joi": "^11.3.3",
     "lodash": "^4.17.5",
+    "moment": "^2.22.0",
     "winston": "^2.4.1"
   },
   "devDependencies": {
