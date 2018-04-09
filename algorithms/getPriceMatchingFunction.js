@@ -15,9 +15,9 @@ const _ = require('lodash'),
   parseFloat = Number.parseFloat;
 
 
-const getPriceMatchingFunction = function(priceRangeStringString) {
+const getPriceMatchingFunction = function(priceRangeString) {
 
-  const { minRange, maxRange } = getMinMaxRange(priceRangeStringString);
+  const { minRange, maxRange } = getMinMaxRange(priceRangeString);
 
   return function(hotelObject){
 
