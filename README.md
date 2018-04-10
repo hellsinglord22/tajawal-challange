@@ -1,6 +1,7 @@
 # TAJAWAL CHALLANGE
 
 [![Build Status](https://travis-ci.org/hellsinglord22/tajawal-challange.svg?branch=dev)](https://travis-ci.org/hellsinglord22/tajawal-challange)
+[![Maintainability](https://api.codeclimate.com/v1/badges/d268560c4f2c7facb5fc/maintainability)](https://codeclimate.com/github/hellsinglord22/tajawal-challange/maintainability)
 
 ## Content
 
