@@ -29,7 +29,7 @@ describe('# algorithm.match(matchingCriteria, hotelObject)', function() {
   it('match hotel price smaller than 100', function() {
 
     const matchingCriteria = '0:100',
-      matchPriceLessThan100 = new Match([_.bind(matchPrice, null, matchingCriteria)]);
+      matchPriceLessThan100 = Match([_.bind(matchPrice, null, matchingCriteria)]);
 
     expect(matchPriceLessThan100.match(hotel)).to.be.true;
 
@@ -40,7 +40,7 @@ describe('# algorithm.match(matchingCriteria, hotelObject)', function() {
 
     const pricePlugin = _.bind(matchPrice, null, '0:100'),
       availabilityPlugin = _.bind(matchAvailability, null, '05-12-2020:18-12-2020'),
-      matchPriceAndAvailability = new Match()
+      matchPriceAndAvailability = Match()
         .add(pricePlugin)
         .add(availabilityPlugin);
 
@@ -60,7 +60,7 @@ describe('# algorithm.match(matchingCriteria, hotelObject)', function() {
 
       },
       matchNamePlugin = matchName({ name: 'Le Meridien' }),
-      matchNameToLeMeridien = new Match([matchNamePlugin]);
+      matchNameToLeMeridien = Match([matchNamePlugin]);
 
     expect(matchNameToLeMeridien.match(hotel)).to.be.false;
 
@@ -69,7 +69,7 @@ describe('# algorithm.match(matchingCriteria, hotelObject)', function() {
 
   it('do not match', function() {
 
-    const noMatch = new Match();
+    const noMatch = Match();
 
     expect(noMatch.match(hotel)).to.be.true;
 

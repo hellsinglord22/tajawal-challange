@@ -1,10 +1,12 @@
 const sort = require('sort'),
   matchPrice = require('./matchPrice'),
-  matchAvailability = require('./matchAvailability');
+  matchAvailability = require('./matchAvailability'),
+  matchFactory = require('./matchFactory');
 
 
 module.exports = {
   sort,
   matchPrice,
-  matchAvailability
+  matchAvailability,
+  matchFactory
 };

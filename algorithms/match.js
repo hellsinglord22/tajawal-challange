@@ -3,39 +3,45 @@ const _ = require('lodash'),
   MATCHING_PLUGIN_MUST_BE_FUNCTION = 'matchingPlugin must be of type function',
   MATCHING_PLUGIN_REQUIRED = 'matchingPlugin is required';
 
-const Matcher = function(registeredFunctions = []) {
+const Matcher = function(functions = []) {
 
-  this.registeredFunctions = _.isArray(registeredFunctions) ? registeredFunctions : [registeredFunctions];
+  return new Init(functions);
 
 };
 
 
-Matcher.prototype = {
+const Init = function(functions) {
 
-  add: function(matchingPlugin) {
+  this.functions = _.isArray(functions) ? functions : [functions];
+  return this;
 
-    assert(matchingPlugin, MATCHING_PLUGIN_REQUIRED);
-    assert(_.isFunction(matchingPlugin), MATCHING_PLUGIN_MUST_BE_FUNCTION);
-    this.registeredFunctions.push(matchingPlugin);
-    return this;
+};
 
-  },
 
-  match: function (object) {
+Init.prototype.add = function(matchingPlugin) {
 
-    const self = this;
-    for (let index = 0; index < self.registeredFunctions.length; index++) {
+  assert(matchingPlugin, MATCHING_PLUGIN_REQUIRED);
+  assert(_.isFunction(matchingPlugin), MATCHING_PLUGIN_MUST_BE_FUNCTION);
+  this.functions.push(matchingPlugin);
+  return this;
 
-      if (!self.registeredFunctions[index](object)) {
+};
 
-        return false;
 
-      }
+Init.prototype.match = function (object) {
+
+  const self = this;
+  for (let index = 0; index < self.functions.length; index++) {
+
+    if (!self.functions[index](object)) {
+
+      return false;
 
     }
-    return true;
 
   }
+  return true;
+
 };
 
 
