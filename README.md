@@ -8,6 +8,7 @@
 2.  [Installing dependencies](https://github.com/hellsinglord22/tajawal-challange#installing-dependencies)
 3.  [Using api](https://github.com/hellsinglord22/tajawal-challange#using-api)
 4.  [Assumptions](https://github.com/hellsinglord22/tajawal-challange#assumptions)
+5.  [Improvements](https://github.com/hellsinglord22/tajawal-challange#improvements)
 
 ---
 
@@ -31,3 +32,11 @@
 
 * First assumption: in case of sorting the following string array `['b', 'c', 'a', 'A']` the result will be `['a', 'b', 'c', 'A']` like in the `ASCII` table .
 * Second assumption: When filtiring by `availability` the date `minRange` should be greater than or equal the `from` property and `maxRange` should be smaller than or equal `to` property .
+
+## Improvements
+
+* Integartion test.
+* Error and Error handling Unit test.
+* Winston setupt.
+* Morgan logs
+* Express Sanitizer
