@@ -1,8 +1,10 @@
-const isBetween = require('./isBetween'),
-  sort = require('sort');
+const sort = require('sort'),
+  matchPrice = require('./matchPrice'),
+  matchAvailability = require('./matchAvailability');
 
 
 module.exports = {
-  isBetween,
-  sort
+  sort,
+  matchPrice,
+  matchAvailability
 };

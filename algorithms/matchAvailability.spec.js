@@ -1,13 +1,13 @@
-const getDateMatchingFunction = require('./getDateMatchingFunction'),
+const matchAvailability = require('./matchAvailability'),
   { expect } = require('chai'),
   _ = require('lodash');
 
-describe('# algorithms.getDateMatchingFunction(dateRange)', function() {
+describe('# algorithms.matchAvailability(dateRange, hotelObject)', function() {
 
   it('Happy path - match by date range 01-10-2020:02-10-2020', function() {
 
     const DATE_RANGE = '06-12-2020:28-12-2020',
-      matchHotelByAvailability = getDateMatchingFunction(DATE_RANGE),
+      matchHotelByAvailability = _.bind(matchAvailability, this, DATE_RANGE),
       fakeHotels = this.loadFakeHotels(),
       EXPECTED_RESULT = [
         {

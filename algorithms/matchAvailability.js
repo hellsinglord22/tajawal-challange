@@ -15,35 +15,33 @@ const _ = require('lodash'),
   moment = require('moment');
 
 
-const getPriceMatchingFunction = function(dateRangeString) {
+const matchAvailability = function(dateRangeString, hotelObject) {
 
   const { minRange, maxRange } = getMinMaxRange(dateRangeString);
 
-  return function(hotelObject){
 
-    assert(hotelObject, HOTEL_OBJECT_REQUIRED_ERROR);
-    assert(hotelObject.availability, HOTEL_OBJECT_WRONG_FORMAT_ERROR);
+  assert(hotelObject, HOTEL_OBJECT_REQUIRED_ERROR);
+  assert(hotelObject.availability, HOTEL_OBJECT_WRONG_FORMAT_ERROR);
 
-    const hotelsAvailability = hotelObject.availability;
+  const hotelsAvailability = hotelObject.availability;
 
-    for (let index = 0; index < hotelsAvailability.length; index++) {
+  for (let index = 0; index < hotelsAvailability.length; index++) {
 
-      const from = moment(hotelsAvailability[index].from, DATE_FORMAT),
-        to = moment(hotelsAvailability[index].to, DATE_FORMAT);
+    const from = moment(hotelsAvailability[index].from, DATE_FORMAT),
+      to = moment(hotelsAvailability[index].to, DATE_FORMAT);
 
-      assert(from && to, HOTEL_OBJECT_WRONG_FORMAT_ERROR);
+    assert(from && to, HOTEL_OBJECT_WRONG_FORMAT_ERROR);
 
-      if (minRange.isSameOrAfter(from) && maxRange.isSameOrBefore(to)) {
+    if (minRange.isSameOrAfter(from) && maxRange.isSameOrBefore(to)) {
 
-        return true
-
-      }
+      return true
 
     }
 
-    return false;
-
   }
+
+  return false;
+
 
 };
 
@@ -64,4 +62,4 @@ const getMinMaxRange = function (dateRangeString) {
 };
 
 
-module.exports = getPriceMatchingFunction;
+module.exports = matchAvailability;

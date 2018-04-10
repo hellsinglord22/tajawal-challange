@@ -15,18 +15,16 @@ const _ = require('lodash'),
   parseFloat = Number.parseFloat;
 
 
-const getPriceMatchingFunction = function(priceRangeString) {
+const matchPrice = function(priceRangeString, hotelObject) {
 
   const { minRange, maxRange } = getMinMaxRange(priceRangeString);
 
-  return function(hotelObject){
 
-    assert(hotelObject, HOTEL_OBJECT_REQUIRED_ERROR);
-    assert(hotelObject.price, HOTEL_OBJECT_WRONG_FORMAT_ERROR);
+  assert(hotelObject, HOTEL_OBJECT_REQUIRED_ERROR);
+  assert(hotelObject.price, HOTEL_OBJECT_WRONG_FORMAT_ERROR);
 
-    return hotelObject.price >= minRange && hotelObject.price <= maxRange;
+  return hotelObject.price >= minRange && hotelObject.price <= maxRange;
 
-  }
 
 };
 
@@ -48,4 +46,4 @@ const getMinMaxRange = function (priceRangeString) {
 
 };
 
-module.exports = getPriceMatchingFunction;
+module.exports = matchPrice;

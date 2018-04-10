@@ -1,14 +1,14 @@
-const getPriceMatchingFunction = require('./getPriceMatchingFunction'),
+const matchPrice = require('./matchPrice'),
   { expect } = require('chai'),
   _ = require('lodash');
 
-describe('# algorithms.getPriceMatchingFunction(priceRange)', function() {
+describe('# algorithms.matchPrice(priceRange, hotelObject)', function() {
 
   it('Happy path - match by price range 100-200', function() {
 
 
     const PRICE_RANGE = '100:200',
-      matchHotelByPrice = getPriceMatchingFunction(PRICE_RANGE),
+      matchHotelByPrice = _.bind(matchPrice, this, PRICE_RANGE),
       fakeHotels = this.loadFakeHotels(),
       EXPECTED_RESULT = [
         {
@@ -40,4 +40,3 @@ describe('# algorithms.getPriceMatchingFunction(priceRange)', function() {
   });
 
 });
-// describe('# algorithms.getDateMatchingFunction(dateRange)');
