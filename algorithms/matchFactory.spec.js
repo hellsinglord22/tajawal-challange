@@ -93,6 +93,8 @@ describe('# algorithms matchFactory(matchCriteria)', function () {
       runMatchingTest.call(this, { price: '0:100', date: '06-12-2020:28-12-2020' }, EXPECTED_OUTPUT);
 
     });
+
+
   it('price less than 100 and city cairo', function(){
 
     const EXPECTED_OUTPUT = [{
